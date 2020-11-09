@@ -1,0 +1,23 @@
+baseURL = "https://blog.han.life/"
+languageCode = "en-us"
+theme = "anatole"
+[params]
+title = "Logan's Nest"
+author = "Logan Han"
+description = "Just another IT blog"
+profilePicture = "static/images/profile.jpg"
+
+[[params.socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "http://linkedin.com/in/loganhan"
+
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/logan-han"
+
+[[params.socialIcons]]
+icon = "fas fa-envelope"
+title = "e-mail"
+url = "mailto:logan@thisdomain"
