@@ -7,14 +7,18 @@ Auth was the tricky part as the normal auth requires a browser session rather th
 
 Step 1. Create Dockerfile  
   
-`FROM node:9.9.0-alpine  
+```sh
+FROM node:9.9.0-alpine  
 RUN npm install sfdx-cli --global  
 RUN sfdx --version  
-RUN sfdx plugins --core`
+RUN sfdx plugins --core
+```
 
 Step 2. Generate auth URL from your laptop and push into SSM  
-`sfdx force:auth:web:login -r https://test.salesforce.com -a <alias>  
-sfdx force:org:display -u <alias> --verbose`
+```sh
+sfdx force:auth:web:login -r https://test.salesforce.com -a <alias>  
+sfdx force:org:display -u <alias> --verbose
+```
 
 Step 3. Push the auth URL into SSM  
 Note: Auth URL looks like - force://......salesforce.com  
@@ -24,6 +28,8 @@ To list all the keys in the path:
 `aws ssm get-parameters-by-path --path /SF/ --query 'Parameters[*].Name'`  
 
 Step 4. Run auth within the docker container  
-`aws ssm get-parameters --name <name_here> --with-decryption --output text --query 'Parameters[*].Value' --region ap-southeast-2 > auth.txt"  
-sfdx force:auth:sfdxurl:store -f auth.txt -a <alias_here>`  
+```sh
+aws ssm get-parameters --name <name_here> --with-decryption --output text --query 'Parameters[*].Value' --region ap-southeast-2 > auth.txt"  
+sfdx force:auth:sfdxurl:store -f auth.txt -a <alias_here>
+```
 you probably don't need to worry about auth.txt if you're using docker --rm or similar.

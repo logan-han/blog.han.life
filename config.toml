@@ -1,6 +1,10 @@
 baseURL = "https://blog.han.life/"
 languageCode = "en-us"
 theme = "anatole"
+summarylength = 10
+enableEmoji = true
+enableRobotsTXT = true
+
 [params]
 title = "Logan's Nest"
 author = "Logan Han"
