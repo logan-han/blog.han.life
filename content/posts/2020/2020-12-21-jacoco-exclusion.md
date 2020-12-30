@@ -1,15 +1,16 @@
 ---
-title: "Exclude a subproject from Gradle Jacoco"
+title: "Exclude a Kotlin subproject from Gradle Jacoco"
 date: "2020-12-21"
+description: "When a subject doesn't support Jacoco"
 ---
 
-One of the subproject is NodeJS hence the usual Jacoco setup:
+In my project, one of the subproject is NodeJS hence the usual Jacoco setup:
 ```
 tasks.withType(Test) {
     finalizedBy jacocoTestReport
 }
 ```
-doesn't work as Jacoco fails as it can't see test execution binary for the nodeJS project.
+doesn't work as Jacoco fails since it can't locate test execution binary for the nodeJS project.
 
 After some trial & error, found out this approch works:
 ```
@@ -21,7 +22,7 @@ tasks.withType(Test).each { testTask ->
 }
 ```
 
-then add jacoco gradle setup as usual wiyth executionData setup
+then add jacoco gradle setup as usual with executionData setup:
 ```
 apply plugin: 'jacoco'
 
