@@ -1,7 +1,7 @@
 ---
 title: "Exclude a Kotlin subproject from Gradle Jacoco"
 date: "2020-12-21"
-description: "When a subject doesn't support Jacoco"
+description: "When a sub-project doesn't support Jacoco"
 ---
 
 In my project, one of the subproject is NodeJS hence the usual Jacoco setup:
