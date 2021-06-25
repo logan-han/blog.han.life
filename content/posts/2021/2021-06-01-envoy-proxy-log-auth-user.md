@@ -37,11 +37,16 @@ typed_config:
         return result;
     end
     function envoy_on_request(request_handle)
-      auth_header = request_handle:headers():get("Authorization")
+      local auth_header = request_handle:headers():get("Authorization")
       if auth_header ~= nil then
-        auth_token = split(auth_header," ")
-        auth_decoded = split(base64decode(auth_token[2]),":")
-        request_handle:headers():replace("x-username", auth_decoded[1])
+        local auth_token = split(auth_header," ")
+        if auth_token[1] == "Basic" then
+          local auth_decoded = split(base64decode(auth_token[2]),":")
+          request_handle:headers():replace("x-username", auth_decoded[1])
+          auth_header = null
+          auth_token = null
+          autn_decoded = null
+        end
       end
     end
 - name: envoy.filters.http.router
