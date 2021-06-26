@@ -1,13 +1,12 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path: "/content/static/admin"
+admin_path: "/static/admin"
 webhook_url: 
 sections:
 - type: document
   path: config.toml
   label: Hugo Config
-  match: "**/*"
 - type: directory
   path: content/posts
   label: Posts
