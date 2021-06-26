@@ -1,14 +1,14 @@
 ---
-title: "Add HTTP auth username into envoy proxy logging"
-date: "2021-06-01"
-description: "Dodgy way to extract username from Authorization http header"
----
+title: Add HTTP auth username into envoy proxy logging
+date: 2021-06-01
+description: Dodgy way to extract username from Authorization http header
 
+---
 Oddly couldn't find any useful copy & paste solution for this.
 
 As always, base64 decoding and split function copy & pasted from somewhere else.
 
-```
+```yaml
 http_filters:
 - name: envoy.filters.http.lua
 typed_config:
@@ -53,4 +53,4 @@ typed_config:
 typed_config: {}
 ```
 
-Then it can be added into the log by using `%REQ(x-username)%` from `envoy.extensions.access_loggers.file.v3.FileAccessLog.format` 
+Then it can be added into the log by using `%REQ(x-username)%` from `envoy.extensions.access_loggers.file.v3.FileAccessLog.format`
