@@ -9,7 +9,7 @@ enableRobotsTXT = true
 title = "Logan's Nest"
 author = "Logan Han"
 description = "Just another IT blog"
-profilePicture = "static/images/profile.jpg"
+profilePicture = "images/profile.jpg"
 
 [[params.socialIcons]]
 icon = "fab fa-linkedin"
