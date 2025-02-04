@@ -3,4 +3,4 @@
 
 Static site repo for https://blog.han.life
 
-`git submodule update --init --recursive` to update submodule.
+`git submodule update --recursive --remote --force` to update submodule.
