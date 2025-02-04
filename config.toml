@@ -10,6 +10,7 @@ title = "Logan's Nest"
 author = "Logan Han"
 description = "Just another IT blog"
 profilePicture = "images/profile.jpg"
+gtagId = "G-CVEBFCXFSW"
 
 [[params.socialIcons]]
 icon = "fab fa-linkedin"
