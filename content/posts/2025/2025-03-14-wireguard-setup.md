@@ -53,12 +53,10 @@ Create `/etc/wireguard/wg0.conf` for the server:
 ```ini
 [Interface]
 Address = 192.168.2.1/24
-ListenPort = 33333
+ListenPort = 51820
 PrivateKey = <paste the content of server-privatekey here>
-PostUp = iptables -A FORWARD -i wg0 -j ACCEPT
-PostUp = iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-PostDown = iptables -D FORWARD -i wg0 -j ACCEPT
-PostDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 [Peer]
 PublicKey = <paste the content of client-publickey here>
@@ -93,11 +91,12 @@ Create `client.conf` for the client:
 [Interface]
 DNS = 1.1.1.1
 Address = 192.168.2.2/24
-ListenPort = 33333
+ListenPort = 51820
 PrivateKey = <paste the content of client-privatekey here>
 
 [Peer]
 PublicKey = <paste the content of server-publickey here>
+AllowedIPs = 0.0.0.0/0, ::/0
 Endpoint = <server public IP here>:33333
 ```
 
