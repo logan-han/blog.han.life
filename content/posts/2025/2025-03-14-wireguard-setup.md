@@ -6,6 +6,8 @@ description: WireGuard Setup Instructions
 
 I spent some time figuring out how WireGuard works and found the guidelines, including the official ones, to be rather complex. So, I'm jotting down my learnings here.
 
+If you can't be bothered with all the key and config files, https://www.wireguardconfig.com/ provides one click setup for that with QR code.
+
 ### Steps to Set Up WireGuard
 
 1. Install the package
