@@ -97,7 +97,7 @@ PrivateKey = <paste the content of client-privatekey here>
 [Peer]
 PublicKey = <paste the content of server-publickey here>
 AllowedIPs = 0.0.0.0/0, ::/0
-Endpoint = <server public IP here>:33333
+Endpoint = <server public IP here>:51820
 ```
 
 #### 9. Generate QR Code (Optional)
