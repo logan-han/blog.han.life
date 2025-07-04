@@ -34,24 +34,13 @@ showtoc = false
 tocopen = false
 
 [params.profileMode]
-enabled = false
+enabled = true
 title = "Logan's Nest"
 subtitle = "Just another IT blog"
-imageUrl = "images/profile.jpg"
-imageWidth = 120
-imageHeight = 120
 
 [[params.profileMode.buttons]]
 name = "Posts"
 url = "posts"
-
-[[params.profileMode.buttons]]
-name = "About"
-url = "about"
-
-[params.homeInfoParams]
-Title = "Logan's Nest"
-Content = "Just another IT blog"
 
 [[params.socialIcons]]
 name = "linkedin"
@@ -72,11 +61,6 @@ SiteVerificationTag = "G-CVEBFCXFSW"
 hidden = true
 hiddenInList = true
 hiddenInSingle = true
-
-[params.editPost]
-URL = "https://github.com/logan-han/blog.han.life/tree/main/content"
-Text = "Suggest Changes"
-appendFilePath = true
 
 [params.fuseOpts]
 isCaseSensitive = false
