@@ -1,28 +1,106 @@
 baseURL = "https://blog.han.life/"
-languageCode = "en-us"
-theme = "anatole"
+languageCode = "en-au"
+theme = "PaperMod"
 summarylength = 10
 enableEmoji = true
 enableRobotsTXT = true
 
+[pagination]
+pagerSize = 5
+
 [params]
+env = "production"
 title = "Logan's Nest"
-author = "Logan Han"
 description = "Just another IT blog"
-profilePicture = "images/profile.jpg"
-gtagId = "G-CVEBFCXFSW"
+keywords = ["Blog", "Portfolio"]
+author = "Logan Han"
+dateFormat = "2 January, 2006"
+defaultTheme = "auto"
+disableThemeToggle = false
+ShowReadingTime = false
+ShowShareButtons = false
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowWordCount = false
+ShowRssButtonInSectionTermList = true
+UseHugoToc = true
+disableSpecial1stPost = false
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = false
+showtoc = false
+tocopen = false
+
+[params.profileMode]
+enabled = false
+title = "Logan's Nest"
+subtitle = "Just another IT blog"
+imageUrl = "images/profile.jpg"
+imageWidth = 120
+imageHeight = 120
+
+[[params.profileMode.buttons]]
+name = "Posts"
+url = "posts"
+
+[[params.profileMode.buttons]]
+name = "About"
+url = "about"
+
+[params.homeInfoParams]
+Title = "Logan's Nest"
+Content = "Just another IT blog"
 
 [[params.socialIcons]]
-icon = "fab fa-linkedin"
-title = "Linkedin"
+name = "linkedin"
 url = "http://linkedin.com/in/loganhan"
 
 [[params.socialIcons]]
-icon = "fab fa-github"
-title = "GitHub"
+name = "github"
 url = "https://github.com/logan-han"
 
 [[params.socialIcons]]
-icon = "fas fa-envelope"
-title = "e-mail"
+name = "email"
 url = "mailto:logan@thisdomain"
+
+[params.analytics.google]
+SiteVerificationTag = "G-CVEBFCXFSW"
+
+[params.cover]
+hidden = true
+hiddenInList = true
+hiddenInSingle = true
+
+[params.editPost]
+URL = "https://github.com/logan-han/blog.han.life/tree/main/content"
+Text = "Suggest Changes"
+appendFilePath = true
+
+[params.fuseOpts]
+isCaseSensitive = false
+shouldSort = true
+location = 0
+distance = 1000
+threshold = 0.4
+minMatchCharLength = 0
+keys = ["title", "permalink", "summary", "content"]
+
+[menu]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+noClasses = false
+codeFences = true
+guessSyntax = true
+lineNos = true
+style = "github"
+
+[services.instagram]
+disableInlineCSS = true
+
+[services.x]
+disableInlineCSS = true
