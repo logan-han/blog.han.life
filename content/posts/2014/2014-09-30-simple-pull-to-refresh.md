@@ -7,8 +7,25 @@ date: "2014-09-30"
 
 2\. Add below in head section.
 
-<script src="//code.jquery.com/jquery-1.9.1.min.js"></script> <link rel="stylesheet" href="jquery.scrollz.css"/> <script src="jquery.scrollz.min.js"></script>
+```html
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" href="jquery.scrollz.css"/>
+<script src="jquery.scrollz.min.js"></script>
+```
 
-3\. Add an object with matching id. e.g)<table id="main"
+3\. Add an object with matching id. e.g)
 
-4\. Add below in body section. <script>$(document).ready(function() { $('#main').scrollz({ pull : true }); $('#main').bind('pulled', function() { location.reload();});});</script>
+```html
+<table id="main">
+```
+
+4\. Add below in body section.
+
+```javascript
+$(document).ready(function() { 
+    $('#main').scrollz({ pull : true }); 
+    $('#main').bind('pulled', function() { 
+        location.reload();
+    });
+});
+```
