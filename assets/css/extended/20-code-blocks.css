@@ -1,0 +1,149 @@
+/* Code Block Styling for Technical Blog */
+
+/* Monospace font stack */
+code, pre, .highlight {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco',
+               'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 0.9em;
+}
+
+/* Inline code styling */
+.post-content code:not([class*="language-"]):not(.noclass) {
+  background: var(--code-bg);
+  padding: 0.2em 0.45em;
+  border-radius: 4px;
+  font-size: 0.88em;
+  color: var(--content);
+  border: 1px solid var(--border);
+}
+
+/* Code block container */
+.post-content .highlight {
+  margin: 1.5em 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.dark .post-content .highlight {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Pre element within highlight */
+.post-content .highlight pre {
+  margin: 0;
+  padding: 1.25em;
+  overflow-x: auto;
+  tab-size: 2;
+  -moz-tab-size: 2;
+  background: var(--code-block-bg);
+}
+
+/* Line numbers styling */
+.highlight .ln,
+.highlight .lnt {
+  color: #6e7681;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.6;
+}
+
+/* Table-based line numbers */
+.highlight .lntd:first-child {
+  padding-right: 0.75em;
+}
+
+.highlight .lntd:last-child {
+  width: 100%;
+}
+
+/* Copy button styling */
+.copy-code {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  background: var(--tertiary);
+  color: var(--secondary);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.highlight:hover .copy-code {
+  opacity: 1;
+}
+
+.copy-code:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Scrollbar styling for code blocks */
+.highlight pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.highlight pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.highlight pre::-webkit-scrollbar-thumb {
+  background: var(--tertiary);
+  border-radius: 4px;
+}
+
+.highlight pre::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Special styling for config files */
+.language-yaml .highlight pre,
+.language-toml .highlight pre,
+.language-ini .highlight pre,
+.language-json .highlight pre {
+  border-left: 3px solid var(--accent);
+}
+
+/* Shell/bash command styling */
+.language-sh .highlight pre,
+.language-bash .highlight pre,
+.language-shell .highlight pre {
+  border-left: 3px solid #4caf50;
+}
+
+/* Chroma syntax highlighting overrides for better contrast */
+.highlight .c,
+.highlight .c1,
+.highlight .cm {
+  color: #8b949e;
+  font-style: italic;
+}
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn {
+  color: #ff7b72;
+}
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2 {
+  color: #a5d6ff;
+}
+
+.highlight .n,
+.highlight .na,
+.highlight .nb {
+  color: #79c0ff;
+}
+
+.highlight .mi,
+.highlight .mf {
+  color: #a5d6ff;
+}
