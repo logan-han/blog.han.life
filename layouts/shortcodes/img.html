@@ -1,0 +1,59 @@
+{{- /*
+  Responsive image shortcode with WebP support and lazy loading
+  Usage: {{< img src="image.jpg" alt="Description" >}}
+  Optional: {{< img src="image.jpg" alt="Description" caption="Image caption" >}}
+*/ -}}
+
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $caption := .Get "caption" -}}
+
+{{- /* Try to get image from page resources first, then global resources */ -}}
+{{- $image := .Page.Resources.GetMatch $src -}}
+{{- if not $image -}}
+  {{- $image = resources.Get $src -}}
+{{- end -}}
+
+{{- if $image -}}
+  {{- /* Generate responsive sizes */ -}}
+  {{- $small := $image.Resize "480x webp q90" -}}
+  {{- $medium := $image.Resize "768x webp q85" -}}
+  {{- $large := $image.Resize "1024x webp q85" -}}
+  {{- $fallback := $image.Resize "1024x q85" -}}
+
+  <figure class="img-responsive">
+    <picture>
+      <source
+        type="image/webp"
+        srcset="{{ $small.RelPermalink }} 480w,
+                {{ $medium.RelPermalink }} 768w,
+                {{ $large.RelPermalink }} 1024w"
+        sizes="(max-width: 480px) 100vw,
+               (max-width: 768px) 100vw,
+               800px">
+      <img
+        src="{{ $fallback.RelPermalink }}"
+        alt="{{ $alt }}"
+        width="{{ $fallback.Width }}"
+        height="{{ $fallback.Height }}"
+        loading="lazy"
+        decoding="async">
+    </picture>
+    {{- with $caption }}
+    <figcaption>{{ . }}</figcaption>
+    {{- end }}
+  </figure>
+
+{{- else -}}
+  {{- /* Fallback for images that can't be processed (external URLs or missing files) */ -}}
+  <figure class="img-responsive">
+    <img
+      src="{{ $src }}"
+      alt="{{ $alt }}"
+      loading="lazy"
+      decoding="async">
+    {{- with $caption }}
+    <figcaption>{{ . }}</figcaption>
+    {{- end }}
+  </figure>
+{{- end -}}

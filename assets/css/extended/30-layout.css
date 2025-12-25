@@ -1,0 +1,246 @@
+/* Layout Improvements - ToC, Post Cards, Breadcrumbs */
+
+/* Table of Contents */
+.toc {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+}
+
+.toc details summary {
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.1em;
+  padding: 0.5em 0;
+  color: var(--primary);
+}
+
+.toc details summary::marker {
+  color: var(--accent);
+}
+
+.toc ul {
+  margin: 0.5em 0 0 0;
+  padding-left: 1.5em;
+  list-style: none;
+}
+
+.toc li {
+  margin: 0.4em 0;
+  line-height: 1.4;
+  position: relative;
+}
+
+.toc li::before {
+  content: "";
+  position: absolute;
+  left: -1em;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--tertiary);
+}
+
+.toc a {
+  color: var(--secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.toc a:hover {
+  color: var(--accent);
+}
+
+/* Nested ToC levels */
+.toc li ul {
+  margin-top: 0.3em;
+}
+
+.toc li li::before {
+  width: 4px;
+  height: 4px;
+  background: var(--border);
+}
+
+/* Post meta styling */
+.post-meta {
+  color: var(--secondary);
+  font-size: 0.9em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 0.75em 0 1.5em;
+}
+
+.post-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+/* Post title */
+.post-title {
+  font-size: 2.2em;
+  line-height: 1.2;
+  margin-bottom: 0.25em;
+}
+
+/* Post description */
+.post-description {
+  color: var(--secondary);
+  font-size: 1.1em;
+  font-style: italic;
+  margin-bottom: 1em;
+  line-height: 1.5;
+}
+
+/* Breadcrumbs styling */
+.breadcrumbs {
+  font-size: 0.85em;
+  margin-bottom: 1em;
+  color: var(--secondary);
+}
+
+.breadcrumbs a {
+  color: var(--secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent);
+}
+
+.breadcrumbs span {
+  margin: 0 0.5em;
+}
+
+/* Post entry cards on list pages */
+.post-entry {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25em 1.5em;
+  margin-bottom: 1em;
+  transition: all 0.2s ease;
+}
+
+.post-entry:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.dark .post-entry:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.entry-header h2 {
+  font-size: 1.3em;
+  margin: 0 0 0.4em;
+  line-height: 1.3;
+}
+
+.entry-content {
+  color: var(--secondary);
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+/* Tags styling */
+.post-tags {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid var(--border);
+}
+
+.post-tags a {
+  background: var(--tertiary);
+  color: var(--secondary);
+  padding: 0.35em 0.85em;
+  border-radius: 15px;
+  font-size: 0.85em;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+  margin: 0.25em 0.25em 0.25em 0;
+}
+
+.post-tags a:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Post navigation links */
+.paginav {
+  margin-top: 2em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 1em;
+}
+
+.paginav a {
+  flex: 1;
+  padding: 1em;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.paginav a:hover {
+  border-color: var(--accent);
+  background: var(--code-bg);
+}
+
+.paginav .title {
+  display: block;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.paginav .prev .title::before {
+  content: "\2190 ";
+}
+
+.paginav .next .title::after {
+  content: " \2192";
+}
+
+/* Archive page styling */
+.archive-posts {
+  margin-top: 1em;
+}
+
+.archive-year {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.25em;
+  border-bottom: 2px solid var(--accent);
+}
+
+.archive-entry {
+  padding: 0.75em 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.archive-entry:last-child {
+  border-bottom: none;
+}
+
+.archive-entry-title {
+  font-weight: 500;
+}
+
+.archive-meta {
+  color: var(--secondary);
+  font-size: 0.85em;
+}
