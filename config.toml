@@ -53,8 +53,6 @@ url = "https://github.com/logan-han"
 name = "email"
 url = "mailto:logan@thisdomain"
 
-[params.analytics.google]
-SiteVerificationTag = "G-CVEBFCXFSW"
 
 [params.cover]
 hidden = true
@@ -98,6 +96,9 @@ codeFences = true
 guessSyntax = true
 lineNos = true
 style = "github"
+
+[services.googleAnalytics]
+ID = "G-CVEBFCXFSW"
 
 [services.instagram]
 disableInlineCSS = true
