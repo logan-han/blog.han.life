@@ -7,6 +7,13 @@
 {{- /* Canonical URL */ -}}
 <link rel="canonical" href="{{ .Permalink }}">
 
+{{- /* Favicons */ -}}
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#14221c">
+
 {{- /* Open Graph tags */ -}}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:locale" content="{{ .Site.Language.Lang }}">
