@@ -1,91 +1,42 @@
-/* Mobile and Responsive Styles */
+/* Responsive — Terminal direction.
+   Slightly tighter scales on small screens; print stays readable. */
 
-/* Small screens (phones) */
+/* Phones */
 @media (max-width: 576px) {
   :root {
     --gap: 16px;
     --content-gap: 16px;
     --main-width: 100%;
   }
+  body { font-size: 14px; }
+  .post-title       { font-size: 1.45em; }
+  .post-content h1  { font-size: 1.35em; }
+  .post-content h2  { font-size: 1.18em; }
+  .post-content h3  { font-size: 1.05em; }
 
-  body {
-    font-size: 16px;
-  }
-
-  .post-title {
-    font-size: 1.6em;
-  }
-
-  .post-content h1 {
-    font-size: 1.5em;
-  }
-
-  .post-content h2 {
-    font-size: 1.3em;
-  }
-
-  .post-content h3 {
-    font-size: 1.15em;
-  }
-
-  /* Code blocks on mobile */
-  .highlight pre {
-    padding: 1em;
-    font-size: 0.85em;
-  }
-
-  /* Prevent horizontal overflow */
+  .highlight pre { padding: 0.85em; font-size: 0.82em; }
   .post-content pre {
     max-width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Profile adjustments */
-  .profile_inner h1 {
-    font-size: 1.8em;
-  }
-
-  .profile_inner img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .profile .buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
+  .profile_inner h1 { font-size: 1.6em; }
+  .profile_inner img { width: 96px; height: 96px; }
+  .profile .buttons { flex-direction: column; align-items: center; }
   .profile .button {
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
     justify-content: center;
   }
 
-  /* ToC on mobile - full width */
-  .toc {
-    margin: 1em 0;
-  }
+  .toc { margin: 1em 0; }
+  .post-entry { padding: 1.1em 0; }
+  .entry-header h2 { font-size: 1.05em; }
 
-  /* Post entry cards */
-  .post-entry {
-    padding: 1em;
-  }
+  .paginav { flex-direction: column; }
+  .paginav a { text-align: center; }
 
-  .entry-header h2 {
-    font-size: 1.15em;
-  }
-
-  /* Navigation */
-  .paginav {
-    flex-direction: column;
-  }
-
-  .paginav a {
-    text-align: center;
-  }
-
-  /* Tables scroll horizontally */
   .post-content table {
     display: block;
     overflow-x: auto;
@@ -93,117 +44,70 @@
   }
 }
 
-/* Medium screens (tablets) */
+/* Tablets */
 @media (min-width: 577px) and (max-width: 991px) {
-  :root {
-    --main-width: 700px;
-    --gap: 22px;
-  }
-
-  .post-title {
-    font-size: 1.9em;
-  }
-
-  .profile_inner h1 {
-    font-size: 2.2em;
-  }
+  :root { --main-width: 700px; --gap: 22px; }
+  .post-title       { font-size: 1.7em; }
+  .profile_inner h1 { font-size: 1.85em; }
 }
 
-/* Large screens */
-@media (min-width: 992px) {
-  :root {
-    --main-width: 800px;
-  }
-}
+/* Large */
+@media (min-width: 992px)  { :root { --main-width: 820px; } }
+@media (min-width: 1400px) { :root { --main-width: 860px; } }
 
-/* Extra large screens */
-@media (min-width: 1400px) {
-  :root {
-    --main-width: 850px;
-  }
-}
-
-/* Touch device optimizations */
+/* Touch */
 @media (hover: none) {
-  .post-entry:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .profile_inner img:hover {
-    transform: none;
-  }
-
-  /* Larger touch targets */
-  .social-icons a {
-    width: 48px;
-    height: 48px;
-  }
-
-  /* Always show copy button on touch */
-  .copy-code {
-    opacity: 1;
-  }
+  .post-entry:hover { background: transparent; }
+  .profile_inner img:hover { border-color: var(--accent); }
+  .social-icons a { width: 42px; height: 42px; }
+  .copy-code { opacity: 1; }
 }
 
-/* High contrast mode support */
+/* High contrast */
 @media (prefers-contrast: high) {
-  :root {
-    --border: #333;
-  }
-
-  .dark {
-    --border: #999;
-  }
-
-  .post-entry {
-    border-width: 2px;
-  }
+  :root { --border: oklch(0.55 0.02 250); }
+  .post-entry { border-top-width: 2px; }
 }
 
-/* Reduced motion support */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-
-  .post-entry:hover,
-  .profile_inner img:hover,
-  .profile .button:hover {
-    transform: none;
-  }
 }
 
-/* Print styles */
+/* Print — light it up so it's actually readable on paper */
 @media print {
-  .header,
-  .footer,
-  .toc,
-  .paginav,
-  .social-icons,
-  #theme-toggle,
-  .copy-code {
-    display: none !important;
+  :root,
+  .dark {
+    --theme: #ffffff;
+    --entry: #ffffff;
+    --primary: #111111;
+    --content: #111111;
+    --secondary: #444444;
+    --tertiary: #f0f0f0;
+    --border: #cccccc;
+    --code-bg: #f4f4f4;
+    --code-block-bg: #f4f4f4;
+    --accent: #006600;
   }
+  body { background: #fff; color: #111; }
 
-  .post-content {
-    max-width: none;
-  }
+  .header, .footer, .toc, .paginav, .social-icons,
+  #theme-toggle, .copy-code { display: none !important; }
 
+  .post-content { max-width: none; }
   .highlight {
     border: 1px solid #ccc;
     page-break-inside: avoid;
+    color: #111;
+    background: #f4f4f4;
   }
+  .post-content .highlight pre { background: #f4f4f4; color: #111; }
 
-  a {
-    color: inherit;
-    text-decoration: underline;
-  }
-
+  a { color: inherit; text-decoration: underline; }
   a[href]::after {
     content: " (" attr(href) ")";
     font-size: 0.8em;

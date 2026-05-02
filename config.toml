@@ -15,8 +15,9 @@ description = "Just another IT blog"
 keywords = ["Blog", "Portfolio"]
 author = "Logan Han"
 dateFormat = "2 January, 2006"
-defaultTheme = "auto"
-disableThemeToggle = false
+defaultTheme = "dark"
+disableThemeToggle = true
+hideFooter = true
 ShowReadingTime = true
 ShowShareButtons = false
 ShowPostNavLinks = true
@@ -95,7 +96,7 @@ noClasses = false
 codeFences = true
 guessSyntax = true
 lineNos = true
-style = "github"
+style = "github-dark"
 
 [services.googleAnalytics]
 ID = "G-CVEBFCXFSW"

@@ -1,47 +1,39 @@
-/* Custom CSS Variables for blog.han.life */
+/* blog.han.life — "Terminal" direction
+   Near-black background, mono-only typography, phosphor-green accent.
+   Replaces the previous blue-accent variable set. */
 
-/* Light Mode */
-:root {
-  /* Professional blue accent */
-  --accent: #0066cc;
-  --accent-hover: #0052a3;
-
-  /* Slightly warmer background for easier reading */
-  --theme: #fafbfc;
-  --entry: #ffffff;
-  --primary: #1a1a2e;
-  --secondary: #5a5a6e;
-  --tertiary: #e8eaed;
-  --content: #2d2d3a;
-
-  /* Code block colors */
-  --code-block-bg: #1e1e2e;
-  --code-bg: #f0f4f8;
-
-  /* Wider content for technical posts */
-  --main-width: 800px;
-  --nav-width: 1100px;
-
-  /* Increased gap for better breathing room */
-  --gap: 28px;
-  --content-gap: 24px;
-
-  /* Border */
-  --border: #e1e4e8;
-  --radius: 8px;
-}
-
-/* Dark Mode */
+:root,
 .dark {
-  --theme: #0d1117;
-  --entry: #161b22;
-  --primary: #e6edf3;
-  --secondary: #8b949e;
-  --tertiary: #21262d;
-  --content: #c9d1d9;
-  --code-block-bg: #161b22;
-  --code-bg: #21262d;
-  --border: #30363d;
-  --accent: #58a6ff;
-  --accent-hover: #79b8ff;
+  /* Surfaces */
+  --theme:        oklch(0.16 0.01 250);   /* page background */
+  --entry:        oklch(0.19 0.011 250);  /* cards / surfaces */
+  --tertiary:     oklch(0.24 0.014 250);  /* tags / subtle bg */
+  --border:       oklch(0.30 0.012 250);  /* rules / borders */
+
+  /* Text */
+  --primary:      oklch(0.92 0.008 180);  /* headlines */
+  --content:      oklch(0.92 0.008 180);  /* body */
+  --secondary:    oklch(0.72 0.012 180);  /* meta */
+
+  /* Accent — phosphor */
+  --accent:       oklch(0.85 0.18 145);
+  --accent-hover: oklch(0.78 0.18 145);
+
+  /* Code */
+  --code-bg:        oklch(0.22 0.014 250);  /* inline */
+  --code-block-bg:  oklch(0.12 0.008 250);  /* fenced */
+
+  /* Layout */
+  --main-width: 820px;
+  --nav-width:  1100px;
+  --gap:         28px;
+  --content-gap: 24px;
+  --radius:      4px;     /* tighter than notebook — terminal aesthetic */
 }
+
+/* Theme toggle is left in place but auto/light/dark all map to the same
+   terminal palette — there is no "light mode" for this direction. */
+:root[data-theme="light"] { color-scheme: dark; }
+
+html { background: var(--theme); }
+body { color: var(--content); background: var(--theme); }
