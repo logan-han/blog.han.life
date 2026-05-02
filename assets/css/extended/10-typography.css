@@ -1,119 +1,110 @@
-/* Typography Improvements for Technical Content */
+/* Typography — Terminal direction.
+   JetBrains Mono everywhere. Smaller base, dense leading.
+   Add the @import below to load the font (or pin a self-hosted copy). */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-               'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  line-height: 1.7;
-  font-size: 17px;
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
+  line-height: 1.6;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Better heading hierarchy */
+/* Headings — same mono stack, weight does the work */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  font-family: inherit;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
 .post-content h1 {
-  font-size: 1.9em;
-  margin-top: 2em;
-  margin-bottom: 0.75em;
-  font-weight: 700;
+  font-size: 1.55em;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+  font-weight: 600;
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.3em;
 }
-
 .post-content h2 {
-  font-size: 1.5em;
-  margin-top: 1.75em;
-  margin-bottom: 0.65em;
-  font-weight: 600;
-}
-
-.post-content h3 {
   font-size: 1.25em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  font-weight: 600;
+  margin-top: 1.6em;
+  margin-bottom: 0.55em;
+  font-weight: 500;
 }
-
-.post-content h4 {
+.post-content h2::before { content: "## "; color: var(--accent); opacity: 0.7; }
+.post-content h3 {
   font-size: 1.1em;
-  margin-top: 1.25em;
-  font-weight: 600;
+  margin-top: 1.4em;
+  margin-bottom: 0.45em;
+  font-weight: 500;
+}
+.post-content h3::before { content: "### "; color: var(--accent); opacity: 0.55; }
+.post-content h4 {
+  font-size: 1em;
+  margin-top: 1.2em;
+  font-weight: 500;
 }
 
-/* Better paragraph spacing */
-.post-content p {
-  margin-bottom: 1.25em;
-}
+/* Body */
+.post-content p { margin-bottom: 1.1em; }
 
-/* Improved list styling */
+/* Lists */
 .post-content ul,
 .post-content ol {
-  padding-left: 1.75em;
-  margin-bottom: 1.25em;
+  padding-left: 1.6em;
+  margin-bottom: 1.1em;
 }
-
-.post-content li {
-  margin-bottom: 0.5em;
-  line-height: 1.6;
-}
-
-/* Nested lists */
+.post-content li { margin-bottom: 0.35em; line-height: 1.55; }
 .post-content li ul,
-.post-content li ol {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
+.post-content li ol { margin-top: 0.4em; margin-bottom: 0.4em; }
 
-/* Better blockquote styling for callouts */
+/* Blockquote */
 .post-content blockquote {
-  border-left: 4px solid var(--accent);
-  background: var(--code-bg);
-  padding: 1em 1.25em;
-  margin: 1.5em 0;
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-left: 2px solid var(--accent);
+  background: transparent;
+  padding: 0.25em 0 0.25em 1em;
+  margin: 1.4em 0;
+  border-radius: 0;
+  color: var(--secondary);
 }
+.post-content blockquote p { margin-bottom: 0; }
 
-.post-content blockquote p {
-  margin-bottom: 0;
-}
-
-/* Links */
+/* Links — terminal-style underline on hover */
 .post-content a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
+  border-bottom: 1px solid color-mix(in oklch, var(--accent) 35%, transparent);
+  transition: border-color 0.15s;
 }
-
-.post-content a:hover {
-  border-bottom-color: var(--accent);
-}
+.post-content a:hover { border-bottom-color: var(--accent); }
 
 /* Tables */
 .post-content table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5em 0;
+  margin: 1.4em 0;
+  font-size: 0.95em;
 }
-
 .post-content th,
 .post-content td {
-  padding: 0.75em 1em;
+  padding: 0.6em 0.9em;
   border: 1px solid var(--border);
   text-align: left;
 }
-
 .post-content th {
   background: var(--tertiary);
   font-weight: 600;
+  color: var(--primary);
 }
-
-.post-content tr:nth-child(even) {
-  background: var(--code-bg);
-}
+.post-content tr:nth-child(even) { background: color-mix(in oklch, var(--tertiary) 50%, transparent); }
 
 /* Horizontal rule */
 .post-content hr {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px dashed var(--border);
   margin: 2em 0;
 }
