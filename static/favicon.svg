@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Logan's Nest favicon">
+  <rect width="512" height="512" rx="112" fill="#14221c"/>
+  <circle cx="256" cy="256" r="210" fill="#1f3329"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M122 340c66 46 202 55 270 4" stroke="#b98338" stroke-width="42"/>
+    <path d="M146 306c54 35 171 42 224 3" stroke="#d7a556" stroke-width="30"/>
+    <path d="M178 356c45 18 116 22 165 0" stroke="#7a5026" stroke-width="22"/>
+  </g>
+  <path fill="#f2eadb" d="M188 126h56v185h102v51H188z"/>
+</svg>
