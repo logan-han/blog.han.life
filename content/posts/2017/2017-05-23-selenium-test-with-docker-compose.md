@@ -8,30 +8,30 @@ Sample config file when using selenium standalone during test.
 docker-compose YAML 
 ```yaml
 version: '3'
-  services:
-    test:
-      depends_on:
-        - selenium
-      environment:
-        - E2ETEST_HOST=test
-        - SELENIUM_PORT=4444
-        - SELENIUM_HOST=selenium
-      build:
-        context: .
-        dockerfile: Dockerfile
-      ports:
-        - 80
-        - 443
-      command: run_test.sh
-    selenium:
-      image: selenium/standalone-chrome
-      ports:
-        - 4444
+services:
+  test:
+    depends_on:
+      - selenium
+    environment:
+      - E2ETEST_HOST=test
+      - SELENIUM_PORT=4444
+      - SELENIUM_HOST=selenium
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    command: run_test.sh
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
 ```
 
 nightwatch config sample 
 
-```yaml
+```javascript
 "test_settings": {
     "default": {
         "selenium_port"  : parseInt(process.env.SELENIUM_PORT) || 4444,
@@ -50,7 +50,7 @@ nightwatch config sample
 
 run_test.sh
 
-```yaml
+```sh
 docker-compose down
 docker-compose up --force-recreate --build --abort-on-container-exit --exit-code-from test test
 ```

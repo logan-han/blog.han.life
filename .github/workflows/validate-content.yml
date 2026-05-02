@@ -1,0 +1,30 @@
+name: validate content
+
+on:
+  pull_request:
+    paths:
+      - 'content/posts/**/*.md'
+      - 'scripts/validate-content.rb'
+      - '.github/workflows/validate-content.yml'
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'content/posts/**/*.md'
+      - 'scripts/validate-content.rb'
+      - '.github/workflows/validate-content.yml'
+
+jobs:
+  content:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Validate Markdown content
+        run: ruby scripts/validate-content.rb
