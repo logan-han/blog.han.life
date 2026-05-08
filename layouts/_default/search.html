@@ -1,0 +1,42 @@
+{{ define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+<section class="search-page">
+  <label class="search-label" for="search-input">Search</label>
+  <input id="search-input" type="search" placeholder="{{ .Params.placeholder | default "Search..." }}" autocomplete="off">
+  <div id="search-results" class="search-results"></div>
+</section>
+<script>
+(() => {
+  const input = document.getElementById('search-input');
+  const results = document.getElementById('search-results');
+  let index = [];
+
+  const render = (items) => {
+    results.innerHTML = items.map((item) => `
+      <article class="post-entry">
+        <header class="entry-header"><h2><a href="${item.permalink}">${item.title}</a></h2></header>
+        <div class="entry-content">${item.summary || ''}</div>
+      </article>
+    `).join('');
+  };
+
+  fetch('{{ "index.json" | relURL }}')
+    .then((response) => response.json())
+    .then((data) => { index = data; })
+    .catch(() => { results.textContent = 'Search index unavailable.'; });
+
+  input.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    if (!query) {
+      results.innerHTML = '';
+      return;
+    }
+    render(index.filter((item) =>
+      [item.title, item.summary, item.content].join(' ').toLowerCase().includes(query)
+    ).slice(0, 20));
+  });
+})();
+</script>
+{{ end }}

@@ -1,0 +1,7 @@
+{{ if .Site.Params.ShowBreadCrumbs }}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="{{ .Site.Home.RelPermalink }}">Home</a>
+  {{ with .CurrentSection }}<span>/</span><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+  <span>/</span><span>{{ .Title }}</span>
+</nav>
+{{ end }}

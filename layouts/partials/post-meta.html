@@ -1,0 +1,5 @@
+<div class="post-meta">
+  {{ if not .Date.IsZero }}<span>{{ .Date.Format (.Site.Params.dateFormat | default "2 January, 2006") }}</span>{{ end }}
+  {{ if .Site.Params.ShowReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+  {{ if .Site.Params.ShowWordCount }}<span>{{ .WordCount }} words</span>{{ end }}
+</div>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang | default "en" }}" dir="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+  {{ partial "extend_head.html" . }}
+  {{ $css := slice }}
+  {{ with resources.Get "css/core.css" }}{{ $css = $css | append . }}{{ end }}
+  {{ range resources.Match "css/extended/*.css" }}{{ $css = $css | append . }}{{ end }}
+  {{ with $css }}
+    {{ $bundle := . | resources.Concat "css/site.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}">
+  {{ end }}
+  {{ with .OutputFormats.Get "rss" }}
+    <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+  {{ end }}
+</head>
+<body class="dark">
+  <header class="header">
+    <nav class="nav">
+      <p class="logo"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></p>
+      <ul id="menu">
+        {{ $current := . }}
+        {{ range .Site.Menus.main }}
+          {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+          <li><a href="{{ .URL | relURL }}"{{ if $active }} class="active"{{ end }}>{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ if not .Site.Params.hideFooter }}
+  <footer class="footer">
+    <span>&copy; {{ now.Year }} {{ .Site.Params.author | default .Site.Title }}</span>
+  </footer>
+  {{ end }}
+</body>
+</html>

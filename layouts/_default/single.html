@@ -1,0 +1,42 @@
+{{ define "main" }}
+<article class="post-single">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+    {{ partial "post-meta.html" . }}
+  </header>
+
+  {{ if and .Site.Params.showtoc .TableOfContents }}
+  <aside class="toc">
+    <details{{ if .Site.Params.tocopen }} open{{ end }}>
+      <summary>Table of Contents</summary>
+      {{ .TableOfContents }}
+    </details>
+  </aside>
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.tags }}
+  <footer class="post-tags">
+    {{ range . }}
+    <a href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a>
+    {{ end }}
+  </footer>
+  {{ end }}
+
+  {{ if .Site.Params.ShowPostNavLinks }}
+  <nav class="paginav">
+    {{ with .PrevInSection }}
+    <a class="prev" href="{{ .RelPermalink }}"><span class="title">{{ .Title }}</span></a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a class="next" href="{{ .RelPermalink }}"><span class="title">{{ .Title }}</span></a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</article>
+{{ end }}
