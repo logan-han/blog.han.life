@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="profile">
+  <div class="profile_inner">
+    <h1>{{ .Site.Params.profileMode.title | default .Site.Title }}</h1>
+    <p class="headline">{{ .Site.Params.description }}</p>
+    {{ with .Site.Params.profileMode.buttons }}
+    <div class="buttons">
+      {{ range . }}
+      <a class="button" href="{{ .url | relURL }}">{{ .name }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+    {{ with .Site.Params.socialIcons }}
+    <div class="social-icons">
+      {{ range . }}
+      <a href="{{ .url }}" rel="me noopener noreferrer" aria-label="{{ .name }}">{{ .name }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
