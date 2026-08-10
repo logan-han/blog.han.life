@@ -1,5 +1,6 @@
 baseURL = "https://blog.han.life/"
-locale = "en-au"
+title = "Logan's Nest"
+languageCode = "en-au"
 summarylength = 10
 enableEmoji = true
 enableRobotsTXT = true

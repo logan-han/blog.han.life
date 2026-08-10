@@ -7,7 +7,7 @@
     {{ partial "post-meta.html" . }}
   </header>
 
-  {{ if and .Site.Params.showtoc .TableOfContents }}
+  {{ if and .Site.Params.showtoc .Fragments.Headings }}
   <aside class="toc">
     <details{{ if .Site.Params.tocopen }} open{{ end }}>
       <summary>Table of Contents</summary>
