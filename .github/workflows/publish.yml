@@ -39,3 +39,12 @@ jobs:
           aws s3 sync public "s3://${{ secrets.AWS_S3_BUCKET }}" \
             --follow-symlinks \
             --delete
+
+      # Without this the pages sit in S3 while CloudFront serves the old copy
+      # until the default TTL expires. Skipped until the variable is set.
+      - name: Invalidate CloudFront (optional)
+        if: vars.CLOUDFRONT_DISTRIBUTION_ID != ''
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" \
+            --paths "/*"
