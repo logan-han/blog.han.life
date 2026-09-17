@@ -45,8 +45,8 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {{ .Title | jsonify }},
-  "description": {{ $description | jsonify }},
+  "headline": {{ .Title | jsonify | safeJS }},
+  "description": {{ $description | jsonify | safeJS }},
   "url": "{{ .Permalink }}",
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
   "dateModified": "{{ (cond .Lastmod.IsZero .Date .Lastmod).Format "2006-01-02T15:04:05Z07:00" }}",
@@ -97,14 +97,14 @@
     ,{
       "@type": "ListItem",
       "position": {{ $position }},
-      "name": {{ .Parent.Title | jsonify }},
+      "name": {{ .Parent.Title | jsonify | safeJS }},
       "item": "{{ .Parent.Permalink }}"
     }
     {{- end }}
     ,{
       "@type": "ListItem",
       "position": {{ add $position 1 }},
-      "name": {{ .Title | jsonify }},
+      "name": {{ .Title | jsonify | safeJS }},
       "item": "{{ .Permalink }}"
     }
   ]
