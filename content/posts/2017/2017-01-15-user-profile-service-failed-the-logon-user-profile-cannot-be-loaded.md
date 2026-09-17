@@ -1,6 +1,8 @@
 ---
 title: "User Profile Service failed the logon. User profile cannot be loaded."
 date: "2017-01-15"
+description: "The Windows user profile service logon error, the Microsoft article for it, and the default profile file you have to ask support for."
+tags: ["windows"]
 ---
 
 https://support.microsoft.com/en-us/contact/menu/software/windows/ts/

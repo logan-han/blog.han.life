@@ -1,6 +1,8 @@
 ---
 title: "ZeroMQ - PHP client & Python server with multi part message example"
 date: "2012-05-02"
+description: "Multi-part ZeroMQ messaging between a PHP client and a Python server, without relying on either language's own serialisation."
+tags: ["python"]
 ---
 
   

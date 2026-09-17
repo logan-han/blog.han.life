@@ -1,6 +1,8 @@
 ---
 title: "F5 AAM Cache for app generated pages"
 date: "2015-11-16"
+description: "Caching app generated pages on F5 AAM: the headers it needs, the policy setting that honours them, and the debug commands."
+tags: ["networking"]
 ---
 
 Dynamic content requires cache-control(max-age) and/or expires header to be cached.

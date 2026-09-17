@@ -1,6 +1,8 @@
 ---
 title: "Had a car accident in Victoria? Well, too bad."
 date: "2015-09-02"
+description: "What TAC actually covers after a Victorian crash that was not your fault, and the income and loss gaps you are left carrying."
+tags: ["australia", "personal-finance", "cars"]
 ---
 
 I assume everyone reading this well aware about how the car insurance works and maybe made a few claims in past for minor scratches and parking mistakes. That covers the vehicle damages then any injuries and losses caused to human will be taken care by TAC. Until I recently had my first major car crush in my life, that was all I know about TAC and no question asked for past decade for paying extra dollars for it.

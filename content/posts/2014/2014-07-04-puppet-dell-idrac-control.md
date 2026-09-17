@@ -1,6 +1,8 @@
 ---
 title: "Puppet Dell iDRAC control"
 date: "2014-07-04"
+description: "Managing Dell iDRAC settings from Puppet with racadm, guarded by an onlyif so it only runs on Dell hardware."
+tags: ["puppet", "hardware"]
 ---
 
 ```ruby

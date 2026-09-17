@@ -1,10 +1,9 @@
 ---
 title: CloudFront Anycast IP
 date: 2025-10-09
-description: What is CloudFront Anycast IP really?
+description: "AWS charges $3,000 a month for CloudFront Anycast IP. Testing shows it is a small static IP set, not anycast in any meaningful sense."
+tags: ["aws", "cloudfront", "networking"]
 ---
-
-# CloudFront Anycast IP: A Closer Look
 
 I recently worked with a new AWS product called **CloudFront Anycast IP**, which costs **$3,000/month**. After testing it, I found the offering to be quite misleading, so I’m sharing my findings here.
 

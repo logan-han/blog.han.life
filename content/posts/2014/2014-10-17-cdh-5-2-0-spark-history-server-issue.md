@@ -1,6 +1,8 @@
 ---
 title: "CDH 5.2.0 spark history server issue"
 date: "2014-10-17"
+description: "CDH 5.2.0 ships a Spark history location with no hdfs:// prefix, so the history server reads it as a local path and will not start."
+tags: ["hadoop"]
 ---
 
 5.2.0-1.cdh5.2.0.p0.36 has been released couple of days ago.

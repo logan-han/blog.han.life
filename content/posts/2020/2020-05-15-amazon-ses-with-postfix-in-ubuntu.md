@@ -1,7 +1,8 @@
 ---
 title: "Amazon SES with Postfix in Ubuntu"
 date: "2020-05-15"
-description: "HOWTO Setup AWS SES in Ubuntu"
+description: "Relaying mail through Amazon SES from Postfix on Ubuntu, filling in the steps the AWS documentation leaves out."
+tags: ["aws", "linux"]
 ---
 
 Was looking at https://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html but it's not really working as it's missing some key commands.

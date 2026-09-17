@@ -1,6 +1,8 @@
 ---
 title: "Generate Bacula client cert/key pair via Puppet"
 date: "2014-05-28"
+description: "Puppet exec resources that generate a Bacula client key and self-signed certificate, then concatenate them into the PEM the file daemon wants."
+tags: ["puppet", "backup", "tls"]
 ---
 
 ```

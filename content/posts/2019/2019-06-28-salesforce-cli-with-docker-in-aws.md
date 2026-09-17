@@ -1,6 +1,8 @@
 ---
 title: "Salesforce CLI with Docker in AWS"
 date: "2019-06-28"
+description: "Running the Salesforce CLI in Docker on AWS, with the browser-based auth replaced by an auth URL kept in SSM Parameter Store."
+tags: ["aws", "docker"]
 ---
 
 Auth was the tricky part as the normal auth requires a browser session rather than taking it from the CLI prompt.

@@ -2,7 +2,8 @@
    JetBrains Mono everywhere. Smaller base, dense leading.
    Add the @import below to load the font (or pin a self-hosted copy). */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* The font is loaded from a <link> in extend_head.html, not an @import:
+   an @import here cannot start downloading until this bundle has arrived. */
 
 body {
   font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
@@ -107,4 +108,20 @@ body {
   border: none;
   border-top: 1px dashed var(--border);
   margin: 2em 0;
+}
+
+/* ─── Images ─── */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.4em 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.post-content figure { margin: 1.4em 0; }
+.post-content figcaption {
+  color: var(--secondary);
+  font-size: 0.82em;
+  margin-top: 0.5em;
 }

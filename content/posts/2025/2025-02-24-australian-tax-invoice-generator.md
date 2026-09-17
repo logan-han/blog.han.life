@@ -1,7 +1,8 @@
 ---
 title: Australian Tax Invoice Generator
 date: 2025-02-24
-description: A free Australian Tax Invoice Generator that creates PDF tax invoices.
+description: "A free Australian tax invoice generator that creates compliant PDF invoices in the browser, GST included, with nothing stored."
+tags: ["side-projects", "australia"]
 ---
 As I embarked on my first contractor gig, I was asked to provide my own tax invoice. Having dealt with countless invoices over the years, I assumed it would be a simple task. To my surprise, most tax invoice generators out there require payment—some even take a percentage of the transaction, like Stripe. Others, for something as basic as a Word or Excel template, ask for your email just to send you spam.
 

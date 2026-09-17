@@ -1,6 +1,8 @@
 ---
 title: "Run HTTP POST request from chrome developer tools"
 date: "2015-11-11"
+description: "Firing an ad-hoc HTTP POST from the Chrome devtools console with XMLHttpRequest, and why to load a same-origin page first."
+tags: ["javascript"]
 ---
 
 Do this from developer mode console.

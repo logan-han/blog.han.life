@@ -1,7 +1,8 @@
 ---
 title: "Sony WH-1000XM4 noise issue"
 date: "2021-04-08"
-description: "Strange wind noise coming from nearly new Sony WH-1000XM4"
+description: "Static like wind noise from one cup of a six month old WH-1000XM4, an RMA that found nothing, and the silica gel fix from Reddit."
+tags: ["hardware"]
 ---
 
 My less than 6m old Sony WH-1000XM4 suddenly started making wind like static noise from the right side only.

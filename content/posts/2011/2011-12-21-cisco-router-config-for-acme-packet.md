@@ -1,6 +1,8 @@
 ---
 title: "Cisco Router config for ACME PACKET"
 date: "2011-12-21"
+description: "Working sip-ua and voice service voip config for registering a Cisco router against an Acme Packet SBC, including fax and codec pass-through."
+tags: ["cisco", "networking"]
 ---
 
 `sip-ua`

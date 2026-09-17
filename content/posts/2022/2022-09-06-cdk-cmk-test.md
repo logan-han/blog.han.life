@@ -1,8 +1,9 @@
 ---
 title: Lookup CMK for a test in CDK
 date: 2022-09-06
-description: How to lookup dynamic CMK resource name in TS CDK
 
+description: "CDK findResources cannot match a KMS key by alias. Tag the key policy statement with an sid and assert on that instead."
+tags: ["aws", "testing"]
 ---
 Add a CMK in CDK was easy, then when I looked into a way to reference the resource using `findResources`, faced constant failure as for some reason CDK can't really pickup the key based on the alias. 
 

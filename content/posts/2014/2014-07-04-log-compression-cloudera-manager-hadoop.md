@@ -1,6 +1,8 @@
 ---
 title: "Log compression for Cloudera Manager Hadoop"
 date: "2014-07-04"
+description: "Cloudera Manager's log4j will not compress rotated logs. The Apache Extras rolling appender does, pasted into the logging safety valve."
+tags: ["hadoop", "logging"]
 ---
 
 Cloudera manager uses standard log4j which doesn't support compression by itself.

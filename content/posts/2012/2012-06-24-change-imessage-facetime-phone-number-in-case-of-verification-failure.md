@@ -1,6 +1,8 @@
 ---
 title: "Change iMessage & Facetime phone number in case of verification failure"
 date: "2012-06-24"
+description: "Fixing iMessage and FaceTime picking up the SIM's built-in number instead of the number you ported in after a carrier change."
+tags: ["apple"]
 ---
 
 Happened me after carrier change. Keep picking up SIM build-in number rather than my old number ported in later.  

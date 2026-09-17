@@ -1,6 +1,8 @@
 ---
 title: "How to increase VM disk size without re-deploy the machine"
 date: "2012-07-13"
+description: "Growing a Linux VM disk in place with a new partition, pvcreate, vgextend, lvextend and resize2fs, with no redeploy."
+tags: ["linux", "virtualisation", "storage"]
 ---
 
 Ref: http://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&docTypeID=DT\_KB\_1\_1&externalId=1006371

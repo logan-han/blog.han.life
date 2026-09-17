@@ -1,6 +1,8 @@
 ---
 title: "rpmlib(FileDigests) / rpmlib(PayloadIsXz) is needed"
 date: "2015-05-06"
+description: "Installing a CentOS 6 built RPM on CentOS 5: rebuild it with rpmrebuild and the older file digest and payload macros."
+tags: ["linux"]
 ---
 
 This means you are attemping to install a RPM created in CentOS6+ from CentOS5.

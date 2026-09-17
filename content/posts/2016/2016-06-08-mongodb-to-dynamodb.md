@@ -1,6 +1,8 @@
 ---
 title: "MongoDB to DynamoDB"
 date: "2016-06-08"
+description: "Moving a large MongoDB dump into DynamoDB with dyngodb2, including the sed passes and file splitting needed to survive the JSON format."
+tags: ["aws", "databases"]
 ---
 
 Attempted to convert rather large mongo dump to dynamo.

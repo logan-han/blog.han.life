@@ -1,6 +1,8 @@
 ---
 title: "Curl net performance test"
 date: "2016-12-15"
+description: "Curl scripts that log the CloudFront X-Amz-Cf-Id whenever a response is slower than a threshold, plus a full connection timing breakdown."
+tags: ["aws", "cloudfront", "bash"]
 ---
 
 Print out CloudFront X-Amz-Cf-Id when response time is slower than set threshold.

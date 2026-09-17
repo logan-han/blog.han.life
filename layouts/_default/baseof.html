@@ -1,10 +1,15 @@
 <!doctype html>
-<html lang="{{ .Site.Language.Lang | default "en" }}" dir="auto">
+<html lang="{{ .Site.Language.LanguageCode | default "en" }}" dir="auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+  {{- /* Paginated list pages carry their page number so pages 2+ do not
+         compete with page 1 on an identical title. */ -}}
+  {{- $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) }}
+  {{- if in (slice "section" "term") .Kind }}
+    {{- with .Paginator }}{{ if gt .PageNumber 1 }}{{ $title = printf "%s (page %d) | %s" $.Title .PageNumber $.Site.Title }}{{ end }}{{ end }}
+  {{- end }}
+  <title>{{ $title }}</title>
   {{ partial "extend_head.html" . }}
   {{ $css := slice }}
   {{ with resources.Get "css/core.css" }}{{ $css = $css | append . }}{{ end }}

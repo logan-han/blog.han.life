@@ -1,7 +1,8 @@
 ---
 title: "Old Twitter Deleter"
 date: "2021-06-24"
-description: "App delete old tweets"
+description: "A free web app that deletes your old tweets on a schedule, with no subscription and no local Python or OAuth setup."
+tags: ["side-projects"]
 ---
 
 https://twitter.han.life/ 

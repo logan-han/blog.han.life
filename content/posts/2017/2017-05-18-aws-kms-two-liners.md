@@ -1,6 +1,8 @@
 ---
 title: "AWS KMS - two liners"
 date: "2017-05-18"
+description: "Two-line AWS CLI recipes for encrypting and decrypting with KMS, for both binary and base64 ciphertext."
+tags: ["aws", "security"]
 ---
 
 For binary encrypted output: 

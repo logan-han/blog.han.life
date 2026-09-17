@@ -1,7 +1,8 @@
 ---
 title: "Exclude a Kotlin subproject from Gradle Jacoco"
 date: "2020-12-21"
-description: "When a sub-project doesn't support Jacoco"
+description: "Gradle Jacoco fails when a subproject has no test execution data. Filter the test tasks instead of finalising all of them."
+tags: ["testing"]
 ---
 
 In my project, one of the subproject is NodeJS hence the usual Jacoco setup:

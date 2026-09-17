@@ -1,8 +1,9 @@
 ---
 title: Run a debug prob in a kubernetes cluster with gatekeeper
 date: 2023-10-27
-description: Workaround when kubectl debug command is blocked
 
+description: "When Gatekeeper blocks kubectl debug, kubectl run gets you the same throwaway shell, service account and all."
+tags: ["kubernetes"]
 ---
 When attempting to run `kubectl debug <node> -it --image=<image>` blocked due to gatekeeper, you can do about the same with normal `kubectl run` command like below:
 

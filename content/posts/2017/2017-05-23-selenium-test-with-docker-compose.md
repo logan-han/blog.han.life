@@ -1,6 +1,8 @@
 ---
 title: "Selenium test with docker-compose"
 date: "2017-05-23"
+description: "A docker-compose file and matching Nightwatch config for running Selenium standalone Chrome next to the app under test."
+tags: ["docker", "testing"]
 ---
 
 Sample config file when using selenium standalone during test.

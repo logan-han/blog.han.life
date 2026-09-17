@@ -1,6 +1,8 @@
 ---
 title: "Python - write compressed log file into HDFS for hadoop hive mapreduce"
 date: "2012-03-01"
+description: "Python that gzips log data in memory with StringIO and writes it straight into HDFS through pyhdfs, ready for Hive or MapReduce."
+tags: ["hadoop", "python", "logging"]
 ---
 
 ```python

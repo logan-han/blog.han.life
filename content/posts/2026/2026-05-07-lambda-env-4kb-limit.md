@@ -1,10 +1,9 @@
 ---
 title: Bypassing AWS Lambda's 4 KB env var limit
 date: 2026-05-07
-description: A tiny Go binary, a Lambda layer, and the Lambda Runtime spec.
+description: "Lambda caps environment variables at 4 KB. An AWS_LAMBDA_EXEC_WRAPPER binary that pulls SSM params at cold start gets around it."
+tags: ["aws"]
 ---
-
-# Bypassing AWS Lambda's 4 KB env var limit
 
 ## TL;DR
 

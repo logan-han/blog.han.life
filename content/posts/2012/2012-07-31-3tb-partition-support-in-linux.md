@@ -1,6 +1,8 @@
 ---
 title: "3TB partition support in Linux"
 date: "2012-07-31"
+description: "Making a 3TB disk usable in Linux with a GPT label under parted and ext4 with 1% reservation, plus the HP array controller catch."
+tags: ["linux", "storage"]
 ---
 
 Make a GPT partition:

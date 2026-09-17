@@ -1,14 +1,21 @@
-{{- /* JSON-LD Structured Data */ -}}
+{{- /* JSON-LD Structured Data. Called with a dict so the description and image
+       stay identical to the meta tags in extend_head.html. */ -}}
+{{- $page := .page -}}
+{{- $description := .description -}}
+{{- $image := .image -}}
+{{- $isPost := .isPost -}}
 
+{{- with $page -}}
 {{- if .IsHome }}
-{{- /* Organization/Website schema for homepage */ -}}
+{{- /* Website + author schema for the homepage */ -}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "{{ .Site.Title }}",
-  "description": "{{ .Site.Params.description }}",
+  "description": "{{ $description }}",
   "url": "{{ .Site.BaseURL }}",
+  "inLanguage": "{{ .Site.Language.LanguageCode | default "en" }}",
   "author": {
     "@type": "Person",
     "name": "{{ .Site.Params.author }}",
@@ -23,42 +30,43 @@
   },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "{{ .Site.BaseURL }}search/?q={search_term_string}",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ .Site.BaseURL }}search/?q={search_term_string}"
+    },
     "query-input": "required name=search_term_string"
   }
 }
 </script>
 
-{{- else if .IsPage }}
+{{- else if $isPost }}
 {{- /* BlogPosting schema for individual posts */ -}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "{{ .Title }}",
-  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
+  "headline": {{ .Title | jsonify }},
+  "description": {{ $description | jsonify }},
   "url": "{{ .Permalink }}",
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ (cond .Lastmod.IsZero .Date .Lastmod).Format "2006-01-02T15:04:05Z07:00" }}",
+  "inLanguage": "{{ .Site.Language.LanguageCode | default "en" }}",
   "author": {
     "@type": "Person",
     "name": "{{ .Site.Params.author }}",
     "url": "{{ .Site.BaseURL }}"
   },
   "publisher": {
-    "@type": "Organization",
-    "name": "{{ .Site.Title }}",
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}",
     "url": "{{ .Site.BaseURL }}"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ .Permalink }}"
   }
-  {{- with .Params.image }}
-  ,"image": {
-    "@type": "ImageObject",
-    "url": "{{ . | absURL }}"
-  }
+  {{- with $image }}
+  ,"image": "{{ . }}"
   {{- end }}
   {{- with .Params.tags }}
   ,"keywords": "{{ delimit . ", " }}"
@@ -68,9 +76,10 @@
   {{- end }}
 }
 </script>
+{{- end }}
 
-{{- /* BreadcrumbList schema */ -}}
-{{- if .Site.Params.ShowBreadCrumbs }}
+{{- /* BreadcrumbList schema for everything below the homepage */ -}}
+{{- if and .Site.Params.ShowBreadCrumbs (not .IsHome) }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -82,23 +91,24 @@
       "name": "Home",
       "item": "{{ .Site.BaseURL }}"
     }
-    {{- with .CurrentSection }}
+    {{- $position := 1 }}
+    {{- if and .Parent (not .Parent.IsHome) }}
+    {{- $position = add $position 1 }}
     ,{
       "@type": "ListItem",
-      "position": 2,
-      "name": "{{ .Title }}",
-      "item": "{{ .Permalink }}"
+      "position": {{ $position }},
+      "name": {{ .Parent.Title | jsonify }},
+      "item": "{{ .Parent.Permalink }}"
     }
     {{- end }}
     ,{
       "@type": "ListItem",
-      "position": {{ if .CurrentSection }}3{{ else }}2{{ end }},
-      "name": "{{ .Title }}",
+      "position": {{ add $position 1 }},
+      "name": {{ .Title | jsonify }},
       "item": "{{ .Permalink }}"
     }
   ]
 }
 </script>
 {{- end }}
-
 {{- end }}

@@ -1,6 +1,8 @@
 ---
 title: "gnu parallel"
 date: "2015-04-29"
+description: "GNU Parallel's citation notice, what --bibtex actually prints, and how to make it stop."
+tags: ["linux", "bash"]
 ---
 
 So I was testing this today and this is the message I saw when I ran it:

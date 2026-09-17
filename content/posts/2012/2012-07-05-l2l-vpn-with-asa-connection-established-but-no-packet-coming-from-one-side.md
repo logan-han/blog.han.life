@@ -1,6 +1,8 @@
 ---
 title: "L2L VPN with ASA - Connection established but no packet coming from one side"
 date: "2012-07-05"
+description: "A site to site VPN on a Cisco ASA comes up but passes no packets one way, because the dynamic profile outranks the L2L one."
+tags: ["cisco", "networking", "vpn"]
 ---
 
 Symtom:

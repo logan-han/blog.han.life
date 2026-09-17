@@ -1,7 +1,8 @@
 ---
 title: WireGuard Setup
 date: 2025-03-14
-description: WireGuard Setup Instructions
+description: "Setting up WireGuard end to end: interface, key pairs, IP forwarding, config files and a systemd unit for auto start."
+tags: ["vpn", "linux", "networking"]
 ---
 
 I spent some time figuring out how WireGuard works and found the guidelines, including the official ones, to be rather complex. So, I'm jotting down my learnings here.

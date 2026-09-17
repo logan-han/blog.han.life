@@ -28,6 +28,20 @@
   </footer>
   {{ end }}
 
+  {{- /* Related posts: internal links between posts on the same tags, which
+         also gives crawlers a path between the older entries. */ -}}
+  {{ $related := first 4 (.Site.RegularPages.Related .) }}
+  {{ with $related }}
+  <section class="post-related">
+    <h2>Related posts</h2>
+    <ul>
+      {{ range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
   {{ if .Site.Params.ShowPostNavLinks }}
   <nav class="paginav">
     {{ with .PrevInSection }}

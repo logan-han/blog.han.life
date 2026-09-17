@@ -1,6 +1,8 @@
 ---
 title: "[BASH] Repeat Build Step"
 date: "2020-06-22"
+description: "A bash function that stamps out the same YAML build step for every environment, so the pipeline file stays short."
+tags: ["bash", "ci-cd"]
 ---
 
 When you need to print out YAML build step for multiple environments.

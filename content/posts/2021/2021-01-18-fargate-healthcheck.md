@@ -1,7 +1,8 @@
 ---
 title: "fargate container healthcheck"
 date: "2021-01-18"
-description: "configuring healthcheck in a fargate task definition"
+description: "Fargate images have no curl, so the task definition health check uses wget, plus the jsonencode catch in Terraform templates."
+tags: ["aws", "docker"]
 ---
 
 Long story in short, unlike what https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html suggests, fargate doesn't have curl.

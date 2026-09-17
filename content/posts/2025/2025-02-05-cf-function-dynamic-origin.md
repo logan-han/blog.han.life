@@ -1,8 +1,9 @@
 ---
 title: CloudFront Functions with Dynamic Origin Pointing to Another CloudFront
 date: 2025-02-05
-description: Using CloudFront Functions to dynamically change the origin to another CloudFront distribution via updateRequestOrigin.
 
+description: "Using CloudFront Functions to dynamically change the origin to another CloudFront distribution via updateRequestOrigin."
+tags: ["aws", "cloudfront"]
 ---
 At re:Invent 2024, CloudFront Functions introduced new features, including the ability to dynamically change the origin host.
 

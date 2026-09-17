@@ -1,6 +1,8 @@
 ---
 title: "Foreman + Puppet autosign.conf doesn't work"
 date: "2014-09-08"
+description: "Foreman writes the autosign entry but the CSR sits pending forever, because permissions on the CA serial file reject the PUT."
+tags: ["puppet", "tls"]
 ---
 
 Issue: 1. Foreman generates auto sign entry when /provision called first time. (boot loader hit) 2. Once OS is done and call puppet agent run, CSR doesn't get auto-signed. - stays in 'pending' status forever

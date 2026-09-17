@@ -1,6 +1,8 @@
 ---
 title: "Catches novated lease company never tell you"
 date: "2014-11-07"
+description: "What the lease company leaves out: ECM post-tax payments, above-market APR, management and fuel card fees, and what happens if you lose your job."
+tags: ["australia", "personal-finance", "cars"]
 ---
 
 Some knowledges I have accuqired from using novated lease for last 2+ years.

@@ -1,6 +1,8 @@
 ---
 title: "Contract position"
 date: "2015-05-13"
+description: "Contracting pays about 30% more, but super, agency fee, annual and personal leave eat about 25% of it. The maths on whether it is worth it."
+tags: ["australia", "personal-finance"]
 ---
 
 pros: Market standard is 30% extra compare to similar perm position, pro-rata basis. Can claim expense for pretty much all the things, if there's any.

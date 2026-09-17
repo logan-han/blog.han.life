@@ -1,7 +1,8 @@
 ---
 title: Australian SMS OTP Burner
 date: 2025-07-04
-description: Free Australian mobile numbers for receiving SMS OTPs.
+description: "Free Australian mobile numbers for receiving SMS one-time passcodes, built on the Telstra Messaging API's free receiving numbers."
+tags: ["side-projects", "australia"]
 ---
 
 This idea first came to me when Telstra introduced their SMS API a few years back. I kicked off a mini project around it, but couldn’t fully bring it to life due to time constraints.
