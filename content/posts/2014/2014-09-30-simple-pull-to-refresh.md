@@ -1,6 +1,8 @@
 ---
 title: "Simple pull to refresh"
 date: "2014-09-30"
+description: "Adding pull to refresh to a plain web page with jquery.scrollz and a few lines of jQuery bound to the pulled event."
+tags: ["javascript"]
 ---
 
 1\. Get stuffs from https://github.com/zippy1978/jquery.scrollz

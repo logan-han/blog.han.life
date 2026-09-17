@@ -1,6 +1,8 @@
 ---
 title: "Merging multiple avro files into single file using python"
 date: "2014-12-02"
+description: "Python script that merges hundreds of Avro files into one, handling the header and footer, with notes on how slow the append gets."
+tags: ["python", "hadoop"]
 ---
 
 Couldn't find any good example from Web so made one by myself.

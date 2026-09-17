@@ -1,6 +1,8 @@
 ---
 title: "hubot pandora bot adapter"
 date: "2012-04-30"
+description: "Hubot script that pipes chat messages to a Pandorabots AI bot and returns the reply, using xml2js to parse the response."
+tags: ["chatops", "javascript"]
 ---
 
 ```javascript

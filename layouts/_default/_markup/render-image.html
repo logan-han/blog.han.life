@@ -1,0 +1,2 @@
+{{- /* Markdown images: lazy load and keep the alt text the author wrote. */ -}}
+<img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">

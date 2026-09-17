@@ -1,7 +1,8 @@
 ---
 title: "CloudFlare Log Search"
 date: "2020-06-19"
-description: "Cloudflare log search via log API"
+description: "Pulling request logs out of Cloudflare with the log API: zone ID, scoped API key, the field list and a worked curl query."
+tags: ["logging", "networking"]
 ---
 
 1. Get the Zone ID  

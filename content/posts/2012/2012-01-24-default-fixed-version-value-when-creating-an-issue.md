@@ -1,6 +1,8 @@
 ---
 title: "Default fixed version value when creating an issue in JIRA"
 date: "2012-01-24"
+description: "Prefilling the Fix Version field on the Jira create screen with a little JavaScript, once you dig the version ID out of the database."
+tags: ["atlassian", "javascript"]
 ---
 
 You can try to add some JavaScript code to the field that will perform required operation for you, in this case it should be 'Fix Version' field. You can refer to this documentation as a guideline:  

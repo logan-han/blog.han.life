@@ -1,6 +1,8 @@
 ---
 title: "Ports for WDS"
 date: "2015-03-31"
+description: "The firewall ports Windows Deployment Services actually needs, which is more than the RPC and SMB pair every search result lists."
+tags: ["windows", "networking"]
 ---
 
 Ports for WDS

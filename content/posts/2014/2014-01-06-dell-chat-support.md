@@ -1,6 +1,8 @@
 ---
 title: "Dell Chat Support"
 date: "2014-01-06"
+description: "Dell chat support beats reading service tags down the phone: copy and paste friendly, takes attachments, but closes at midnight CST."
+tags: ["hardware"]
 ---
 
 Sick of telling phonetic code over the phone?

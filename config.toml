@@ -1,18 +1,20 @@
 baseURL = "https://blog.han.life/"
 title = "Logan's Nest"
 languageCode = "en-au"
-summarylength = 10
+summarylength = 30
 enableEmoji = true
 enableRobotsTXT = true
 
 [pagination]
-pagerSize = 5
+pagerSize = 20
 
 [params]
 env = "production"
 title = "Logan's Nest"
-description = "Just another IT blog"
-keywords = ["Blog", "Portfolio"]
+description = "Field notes on AWS, Linux, networking and automation from a Melbourne platform engineer."
+keywords = ["AWS", "DevOps", "Linux", "Platform engineering", "Melbourne"]
+ogLocale = "en_AU"
+images = ["images/og-default.png"]
 author = "Logan Han"
 dateFormat = "2 January, 2006"
 defaultTheme = "dark"
@@ -77,6 +79,12 @@ url = "/posts/"
 weight = 10
 
 [[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = 20
+
+[[menu.main]]
 identifier = "archives"
 name = "Archives"
 url = "/archives/"
@@ -87,6 +95,23 @@ identifier = "search"
 name = "Search"
 url = "/search/"
 weight = 40
+
+[taxonomies]
+tag = "tags"
+
+# Powers the related-posts block on each post.
+[related]
+threshold = 60
+includeNewer = true
+toLower = true
+
+[[related.indices]]
+name = "tags"
+weight = 100
+
+[[related.indices]]
+name = "date"
+weight = 10
 
 [markup.goldmark.renderer]
 unsafe = true

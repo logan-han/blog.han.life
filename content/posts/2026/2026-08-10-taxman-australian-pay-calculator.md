@@ -1,7 +1,8 @@
 ---
 title: Taxman, an Australian Pay Calculator
 date: 2026-08-10
-description: Ad-free Australian salary, tax and mortgage calculators that run entirely in your browser.
+description: "Ad-free Australian salary, tax and mortgage calculators that run entirely in your browser."
+tags: ["side-projects", "australia", "personal-finance"]
 ---
 
 There are plenty of Australian pay calculators around, but they all bury the answer under ads, pop-ups, or a broker form that wants your email first. I got sick of it and built my own, same as [my tax invoice generator](https://invoice.han.life).

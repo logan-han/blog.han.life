@@ -1,6 +1,8 @@
 ---
 title: "Generate custom x509 certificate in Okta"
 date: "2017-11-19"
+description: "Generating a custom x509 certificate for an Okta app over the API, capturing the kid, and injecting it back into the app."
+tags: ["tls", "security"]
 ---
 
 \* Requires API key with admin access, least for the target app

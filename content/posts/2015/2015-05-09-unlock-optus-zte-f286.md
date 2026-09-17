@@ -1,6 +1,8 @@
 ---
 title: "Unlock Optus ZTE F286"
 date: "2015-05-09"
+description: "Unlocking an Optus ZTE F286 with a generated NCK code and a dial string, instead of paying an unlock service for a $15 phone."
+tags: ["australia"]
 ---
 
 Looks like this phone is getting remarkably popular with Optus Netflix deal.

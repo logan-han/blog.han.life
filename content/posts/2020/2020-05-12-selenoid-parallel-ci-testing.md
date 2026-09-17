@@ -1,7 +1,8 @@
 ---
 title: "Selenoid Parallel CI testing"
 date: "2020-05-12"
-description: "Selenium testing with built-in video recorder"
+description: "Running Selenoid beside the test runner in CI for parallel browser tests, with video recording and one Selenoid per build agent."
+tags: ["docker", "testing", "ci-cd"]
 ---
 
 [Selenoid](https://github.com/aerokube/selenoid) is handy tool to manage test runner with minimum efforts.  

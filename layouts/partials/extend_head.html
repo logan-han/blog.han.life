@@ -1,8 +1,51 @@
 {{- /* Extended head partial for SEO and performance */ -}}
 
+{{- /* Shared SEO values, computed once and reused by every tag below. */ -}}
+{{- $isPost := and .IsPage (eq .Section "posts") -}}
+{{- /* Only the kinds whose templates actually paginate: the /tags/ terms list
+       renders every term on one page. */ -}}
+{{- $isPaginated := in (slice "section" "term") .Kind -}}
+
+{{- /* Canonical. Paginated list pages point at themselves, not at page 1,
+       so /posts/page/2/ and friends can be indexed on their own. */ -}}
+{{- $canonical := .Permalink -}}
+{{- if $isPaginated -}}
+  {{- with .Paginator -}}
+    {{- if gt .PageNumber 1 -}}{{ $canonical = .URL | absURL }}{{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Description. Front matter first, then the body with code blocks and
+       tables stripped: .Summary pulls in the line numbers that
+       markup.highlight.lineNos emits, which made for junk snippets. */ -}}
+{{- $description := .Site.Params.description -}}
+{{- with .Description -}}
+  {{- $description = . -}}
+{{- else -}}
+  {{- if not .IsHome -}}
+    {{- $body := .Content | replaceRE `(?s)<(pre|figure|table|blockquote)[^>]*>.*?</(pre|figure|table|blockquote)>` " " | plainify | htmlUnescape | replaceRE `\s+` " " -}}
+    {{- $body = trim $body " " -}}
+    {{- with $body }}{{ $description = . | truncate 160 }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Share image: page override, then the site default. */ -}}
+{{- $image := "" -}}
+{{- with .Params.image -}}
+  {{- $image = . | absURL -}}
+{{- else -}}
+  {{- with .Site.Params.images -}}{{ $image = index . 0 | absURL }}{{- end -}}
+{{- end -}}
+
 {{- /* Preconnect hints for performance */ -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+{{- /* Body font. Loaded here rather than through an @import in the CSS
+       bundle so it downloads alongside it instead of after it. */ -}}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
 
 {{- /* Google Analytics. The ID in [services.googleAnalytics] does nothing on its
        own: with no theme, nothing calls the internal template, so the tag has to
@@ -24,8 +67,11 @@
 {{- end }}
 {{- end }}
 
+{{- /* Description, shared with the Open Graph and schema tags below. */ -}}
+<meta name="description" content="{{ $description }}">
+
 {{- /* Canonical URL */ -}}
-<link rel="canonical" href="{{ .Permalink }}">
+<link rel="canonical" href="{{ $canonical }}">
 
 {{- /* Favicons */ -}}
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -36,18 +82,12 @@
 
 {{- /* Open Graph tags */ -}}
 <meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:locale" content="{{ .Site.Language.Lang }}">
-
-{{- if .IsHome }}
-<meta property="og:type" content="website">
-<meta property="og:title" content="{{ .Site.Title }}">
-<meta property="og:description" content="{{ .Site.Params.description }}">
-<meta property="og:url" content="{{ .Site.BaseURL }}">
-{{- else }}
-<meta property="og:type" content="article">
-<meta property="og:title" content="{{ .Title }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
-<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ .Site.Params.ogLocale | default "en_US" }}">
+<meta property="og:type" content="{{ cond $isPost "article" "website" }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ $canonical }}">
+{{- if $isPost }}
 <meta property="article:author" content="{{ .Site.Params.author }}">
 <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
 {{- if not .Lastmod.IsZero }}
@@ -61,19 +101,14 @@
 {{- end }}
 
 {{- /* Twitter Card tags */ -}}
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="{{ cond (ne $image "") "summary_large_image" "summary" }}">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}{{ end }}">
+<meta name="twitter:description" content="{{ $description }}">
 
 {{- /* Featured image for social sharing */ -}}
-{{- with .Params.image }}
-<meta property="og:image" content="{{ . | absURL }}">
-<meta name="twitter:image" content="{{ . | absURL }}">
-{{- else }}
-{{- with .Site.Params.images }}
-<meta property="og:image" content="{{ index . 0 | absURL }}">
-<meta name="twitter:image" content="{{ index . 0 | absURL }}">
-{{- end }}
+{{- with $image }}
+<meta property="og:image" content="{{ . }}">
+<meta name="twitter:image" content="{{ . }}">
 {{- end }}
 
 {{- /* Additional SEO meta tags */ -}}
@@ -81,8 +116,13 @@
 <meta name="author" content="{{ .Site.Params.author }}">
 {{- end }}
 
-{{- /* Robots meta */ -}}
+{{- /* Robots. Thin utility pages (search) stay out of the index but keep
+       their links crawlable. */ -}}
+{{- if .Params.noindex }}
+<meta name="robots" content="noindex, follow">
+{{- else }}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{{- end }}
 
 {{- /* Include structured data */ -}}
-{{ partial "structured-data.html" . }}
+{{ partial "structured-data.html" (dict "page" . "description" $description "image" $image "isPost" $isPost) }}

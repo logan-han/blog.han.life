@@ -1,6 +1,8 @@
 ---
 title: "Replace Mercedes-Benz B250 cabin(pollen) filter replacement DIY"
 date: "2016-11-21"
+description: "A dealer quoted $300 for a Mercedes B250 cabin filter. A German eBay seller wanted $42, and the swap takes ten minutes with no tools."
+tags: ["cars"]
 ---
 
 Quoted $300+ from dealer shop which I know a serious rip-off price for mere carbon filter.

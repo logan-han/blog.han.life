@@ -1,6 +1,8 @@
 ---
 title: "Using additional public ip address over pppoe nat with cisco router"
 date: "2011-09-30"
+description: "Giving a Cisco router a non-NAT public IP over PPPoE, using a loopback interface or a static NAT entry alongside the route-map overload."
+tags: ["cisco", "networking"]
 ---
 
 To allocate router a non-NAT IP (for AWS VPC etc etc)

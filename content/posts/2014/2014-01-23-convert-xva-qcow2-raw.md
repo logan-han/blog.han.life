@@ -1,6 +1,8 @@
 ---
 title: "Convert .xva to .qcow2 (or raw)"
 date: "2014-01-23"
+description: "Turning a Citrix XenServer .xva export into a raw image with xenmigrate.py, then into qcow2 with qemu-img."
+tags: ["virtualisation"]
 ---
 
 Figured out while running below work.

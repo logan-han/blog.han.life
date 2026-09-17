@@ -1,6 +1,8 @@
 ---
 title: "Flume DFO local storage usage check"
 date: "2012-01-30"
+description: "A Perl Nagios check for the Flume DFO backlog directory, so a failed driver does not quietly fill the local disk."
+tags: ["hadoop", "logging"]
 ---
 
 It might be useful when flume driver failed.  

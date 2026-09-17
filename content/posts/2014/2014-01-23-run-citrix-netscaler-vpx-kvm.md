@@ -1,6 +1,8 @@
 ---
 title: "Run Citrix NetScaler VPX from KVM"
 date: "2014-01-23"
+description: "Running Citrix NetScaler VPX on KVM by converting the Hyper-V disk, plus the missing default route and the virtio interface catch."
+tags: ["virtualisation", "networking"]
 ---
 
 1\. Download Hyper-V image and extract .vhd

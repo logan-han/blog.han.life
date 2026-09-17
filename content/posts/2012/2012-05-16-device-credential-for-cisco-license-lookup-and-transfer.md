@@ -1,6 +1,8 @@
 ---
 title: "Device credential for Cisco license lookup and transfer"
 date: "2012-05-16"
+description: "Pulling the device credential off a Cisco box for licence lookup and transfer, and why SSH beats the serial console for it."
+tags: ["cisco"]
 ---
 
   

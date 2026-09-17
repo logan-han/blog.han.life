@@ -1,7 +1,8 @@
 ---
 title: Capture bash command error in file
 date: 2022-10-12
-description: Run a bash command and capture the error in a text file as well as store the exit code
+description: "Tee stderr to a file for the next command while keeping the original exit code through PIPESTATUS, then annotate the build with it."
+tags: ["bash", "ci-cd"]
 ---
 Neat trick to capture STDERR into a text file for the next command but also exit with the preserved exit code after then.
 

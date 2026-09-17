@@ -1,10 +1,9 @@
 ---
-title: Why Sentry events silently vanished from our Node app
+title: Why Sentry events silently vanished from our Fargate Node app
 date: 2026-05-20
-description: A debugging journey through DNS, Happy Eyeballs, and the unhelpful default behaviour of Node's HTTPS agent.
+description: "Sentry events vanished from a Fargate Node app because Happy Eyeballs stalls on IPv6 with no route. Forcing IPv4 in the transport fixes it."
+tags: ["aws", "networking"]
 ---
-
-# Why Sentry events silently vanished from our Fargate Node app
 
 ## TL;DR
 

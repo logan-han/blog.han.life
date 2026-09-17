@@ -1,8 +1,9 @@
 ---
 title: Add HTTP auth username into envoy proxy logging
 date: 2021-06-01
-description: Dodgy way to extract username from Authorization http header
 
+description: "Adding the HTTP basic auth username to Envoy access logs with a Lua filter that base64 decodes the Authorization header."
+tags: ["logging", "networking"]
 ---
 Oddly couldn't find any useful copy & paste solution for this.
 

@@ -1,6 +1,8 @@
 ---
 title: "cloudmailin hipchat hubot script"
 date: "2012-04-20"
+description: "Hubot script that takes a CloudMailin webhook and posts the email into a HipChat room, with the room ID read from the URL."
+tags: ["chatops", "javascript"]
 ---
 
   

@@ -36,9 +36,20 @@ jobs:
 
       - name: Deploy
         run: |
+          # The CSS bundle carries a content hash in its name, so it can be
+          # cached forever. It goes first: the second sync then sees it as
+          # already current and leaves the header alone. Everything else,
+          # images included, keeps a short TTL and revalidates with its ETag,
+          # so a replaced file is never stuck in a browser cache.
           aws s3 sync public "s3://${{ secrets.AWS_S3_BUCKET }}" \
             --follow-symlinks \
-            --delete
+            --exclude "*" --include "css/*" \
+            --cache-control "public, max-age=31536000, immutable"
+
+          aws s3 sync public "s3://${{ secrets.AWS_S3_BUCKET }}" \
+            --follow-symlinks \
+            --delete \
+            --cache-control "public, max-age=300, must-revalidate"
 
       # Without this the pages sit in S3 while CloudFront serves the old copy
       # until the default TTL expires. Skipped until the variable is set.

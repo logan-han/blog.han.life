@@ -1,6 +1,8 @@
 ---
 title: "Facebook scribe with hdfs"
 date: "2012-02-17"
+description: "Build order and configure flags for compiling Facebook Scribe with HDFS support: boost, thrift, fb303, then scribe itself."
+tags: ["hadoop", "logging", "linux"]
 ---
 
 packages:  

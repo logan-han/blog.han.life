@@ -1,8 +1,9 @@
 ---
 title: Extract TLD from string by bash
 date: 2021-06-25
-description: extract TLD when .com & .co.uk are mixed
 
+description: "Extracting the registrable domain in bash with a short awk expression, so .com and .co.uk both come out right."
+tags: ["bash", "linux"]
 ---
 Faced this interesting use case when I need to extract TLD from the provided hostname string. 
 

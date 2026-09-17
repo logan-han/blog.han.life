@@ -1,6 +1,8 @@
 ---
 title: "How to get free credit reports in Australia"
 date: "2014-12-11"
+description: "Where to request a free credit report in Australia from Experian, Veda and D&B, and the ten business days or so it takes."
+tags: ["australia", "personal-finance"]
 ---
 
 Generally takes 10 business days.

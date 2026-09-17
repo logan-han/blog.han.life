@@ -1,6 +1,8 @@
 ---
 title: "Lets Encrypt nginx SSL certificate renewal via cron"
 date: "2015-11-18"
+description: "Renewing a Let's Encrypt certificate from cron with the webroot plugin, the matching nginx SSL block, and a stronger dhparam."
+tags: ["tls", "nginx", "linux"]
 ---
 
 Add below as a cron entry. 
