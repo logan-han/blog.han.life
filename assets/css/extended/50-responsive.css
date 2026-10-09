@@ -22,7 +22,7 @@
   }
 
   .toc { margin: 1em 0; }
-  .post-entry { padding: 1.1em 0; }
+  .post-entry { padding: 1.1em 1em; }
   .entry-header h2 { font-size: 1.05em; }
 
   .paginav { flex-direction: column; }

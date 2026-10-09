@@ -98,7 +98,7 @@
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 0;
-  padding: 1.4em 0;
+  padding: 1.4em 1.5em;
   margin-bottom: 1em;
   transition: border-color 0.15s;
 }
