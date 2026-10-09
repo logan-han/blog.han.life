@@ -36,14 +36,6 @@ hideSummary = false
 showtoc = true
 tocopen = true
 
-[params.profileMode]
-enabled = true
-title = "Logan's Nest"
-
-[[params.profileMode.buttons]]
-name = "Posts"
-url = "posts"
-
 [[params.socialIcons]]
 name = "linkedin"
 url = "http://linkedin.com/in/loganhan"

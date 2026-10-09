@@ -21,15 +21,6 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .profile_inner h1 { font-size: 1.6em; }
-  .profile_inner img { width: 96px; height: 96px; }
-  .profile .buttons { flex-direction: column; align-items: center; }
-  .profile .button {
-    width: 100%;
-    max-width: 220px;
-    justify-content: center;
-  }
-
   .toc { margin: 1em 0; }
   .post-entry { padding: 1.1em 0; }
   .entry-header h2 { font-size: 1.05em; }
@@ -48,7 +39,6 @@
 @media (min-width: 577px) and (max-width: 991px) {
   :root { --main-width: 700px; --gap: 22px; }
   .post-title       { font-size: 1.7em; }
-  .profile_inner h1 { font-size: 1.85em; }
 }
 
 /* Large */
@@ -58,8 +48,6 @@
 /* Touch */
 @media (hover: none) {
   .post-entry:hover { background: transparent; }
-  .profile_inner img:hover { border-color: var(--accent); }
-  .social-icons a { width: 42px; height: 42px; }
   .copy-code { opacity: 1; }
 }
 
@@ -95,7 +83,7 @@
   }
   body { background: #fff; color: #111; }
 
-  .header, .footer, .toc, .paginav, .social-icons,
+  .header, .footer, .toc, .paginav,
   #theme-toggle, .copy-code { display: none !important; }
 
   .post-content { max-width: none; }

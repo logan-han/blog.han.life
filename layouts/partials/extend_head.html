@@ -2,17 +2,12 @@
 
 {{- /* Shared SEO values, computed once and reused by every tag below. */ -}}
 {{- $isPost := and .IsPage (eq .Section "posts") -}}
-{{- /* Only the kinds whose templates actually paginate: the /tags/ terms list
-       renders every term on one page. */ -}}
-{{- $isPaginated := in (slice "section" "term") .Kind -}}
 
 {{- /* Canonical. Paginated list pages point at themselves, not at page 1,
        so /posts/page/2/ and friends can be indexed on their own. */ -}}
 {{- $canonical := .Permalink -}}
-{{- if $isPaginated -}}
-  {{- with .Paginator -}}
-    {{- if gt .PageNumber 1 -}}{{ $canonical = .URL | absURL }}{{- end -}}
-  {{- end -}}
+{{- with partial "pager.html" . -}}
+  {{- if gt .PageNumber 1 -}}{{ $canonical = .URL | absURL }}{{- end -}}
 {{- end -}}
 
 {{- /* Description. Front matter first, then the body with code blocks and

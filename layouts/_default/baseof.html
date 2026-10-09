@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{- /* Paginated list pages carry their page number so pages 2+ do not
          compete with page 1 on an identical title. */ -}}
-  {{- $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) }}
-  {{- if in (slice "section" "term") .Kind }}
-    {{- with .Paginator }}{{ if gt .PageNumber 1 }}{{ $title = printf "%s (page %d) | %s" $.Title .PageNumber $.Site.Title }}{{ end }}{{ end }}
-  {{- end }}
+  {{- $title := cond .IsHome .Site.Title .Title }}
+  {{- with partial "pager.html" . }}{{ if gt .PageNumber 1 }}{{ $title = printf "%s (page %d)" $title .PageNumber }}{{ end }}{{ end }}
+  {{- if not .IsHome }}{{ $title = printf "%s | %s" $title .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
   {{ partial "extend_head.html" . }}
   {{ $css := slice }}

@@ -1,22 +1,10 @@
 {{ define "main" }}
-<section class="profile">
-  <div class="profile_inner">
-    <h1>{{ .Site.Params.profileMode.title | default .Site.Title }}</h1>
-    <p class="headline">{{ .Site.Params.description }}</p>
-    {{ with .Site.Params.profileMode.buttons }}
-    <div class="buttons">
-      {{ range . }}
-      <a class="button" href="{{ .url | relURL }}">{{ .name }}</a>
-      {{ end }}
-    </div>
-    {{ end }}
-    {{ with .Site.Params.socialIcons }}
-    <div class="social-icons">
-      {{ range . }}
-      <a href="{{ .url }}" target="_blank" rel="me noopener noreferrer" aria-label="{{ .name }}" title="{{ .name }}">{{ partial "svg.html" .name }}</a>
-      {{ end }}
-    </div>
-    {{ end }}
-  </div>
-</section>
+{{- /* No visible heading, the posts are the page. Kept for screen readers. */ -}}
+<h1 class="visually-hidden">{{ .Site.Title }}</h1>
+
+{{ range (partial "pager.html" .).Pages }}
+  {{ partial "post-entry.html" . }}
+{{ end }}
+
+{{ partial "pagination.html" . }}
 {{ end }}

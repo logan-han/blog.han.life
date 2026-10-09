@@ -1,0 +1,9 @@
+{{- /* The pager for paginated lists, else false. The head reads it before the page template
+       and the first call fixes the collection, so the home page's posts-only list is set here. */ -}}
+{{- $pager := false -}}
+{{- if .IsHome -}}
+  {{- $pager = .Paginate (where .Site.RegularPages "Section" "posts") -}}
+{{- else if in (slice "section" "term") .Kind -}}
+  {{- $pager = .Paginator -}}
+{{- end -}}
+{{- return $pager -}}
